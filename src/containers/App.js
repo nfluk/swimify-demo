@@ -1,10 +1,15 @@
-import { Typography } from '@mui/material';
+import { Typography, CssBaseline } from '@mui/material';
+import Navbar from '../components/Navbar';
+import ResultsList from '../components/ResultsList';
 
 function App() {
   return (
-    <div className="App">
+    <>
+      <CssBaseline />
+      <Navbar />
       <Typography variant="h3">Hello World</Typography>
-    </div>
+      <ResultsList />
+    </>
   );
 }
 
