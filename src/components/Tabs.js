@@ -1,15 +1,9 @@
-import React, { useState } from 'react';
 import { Box, Tab, Typography } from '@mui/material';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
-import TimeSchedule from '../components/TimeSchedule';
+import TimeSchedule from './TimeSchedule';
+import ByEvent from './ByEvent';
 
-function Tabs() {
-  const [value, setValue] = useState('1');
-
-  const handleChange = (e, newValue) => {
-    setValue(newValue);
-  };
-
+function Tabs({ value, handleChange }) {
   return (
     <Box>
       <TabContext value={value}>
@@ -23,7 +17,10 @@ function Tabs() {
           <Typography>Time Schedule</Typography>
           <TimeSchedule />
         </TabPanel>
-        <TabPanel value="2">By Event</TabPanel>
+        <TabPanel value="2">
+          <Typography>By Event</Typography>
+          <ByEvent />
+        </TabPanel>
       </TabContext>
     </Box>
   );

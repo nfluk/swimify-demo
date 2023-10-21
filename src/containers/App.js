@@ -1,16 +1,22 @@
-import { Typography, CssBaseline } from '@mui/material';
+import { useState } from 'react';
+import { CssBaseline } from '@mui/material';
 import Navbar from '../components/Navbar';
-import Tabs from './Tabs';
+import MainTitle from '../components/MainTitle';
+import Tabs from '../components/Tabs';
 
 function App() {
+  const [value, setValue] = useState('1');
+
+  const handleChange = (e, newValue) => {
+    setValue(newValue);
+  };
+
   return (
     <>
       <CssBaseline />
       <Navbar />
-      <Typography variant="h3" align="center" sx={{ margin: '2rem' }}>
-        The Best Competition Ever
-      </Typography>
-      <Tabs />
+      <MainTitle />
+      <Tabs value={value} handleChange={handleChange} />
     </>
   );
 }

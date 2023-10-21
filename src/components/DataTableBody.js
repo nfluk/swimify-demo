@@ -1,38 +1,18 @@
 import React from 'react';
-import {
-  TableContainer,
-  Table,
-  TableHead,
-  TableBody,
-  TableRow,
-  TableCell,
-  Paper,
-} from '@mui/material';
+import { TableBody, TableRow, TableCell } from '@mui/material';
 
-function DataTable() {
+function DataTableBody() {
   return (
-    <TableContainer component={Paper} sx={{ maxHeight: '600px' }}>
-      <Table aria-label="simple table" stickyHeader>
-        <TableHead>
-          <TableRow>
-            <TableCell>Id</TableCell>
-            <TableCell>First Name</TableCell>
-            <TableCell>Last Name</TableCell>
-            <TableCell>Email</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {tableData.map((row) => (
-            <TableRow key={row.id}>
-              <TableCell>{row.id}</TableCell>
-              <TableCell>{row.first_name}</TableCell>
-              <TableCell>{row.last_name}</TableCell>
-              <TableCell>{row.email}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <TableBody>
+      {tableData.map((row) => (
+        <TableRow key={row.id}>
+          <TableCell>{row.id}</TableCell>
+          <TableCell>{row.first_name}</TableCell>
+          <TableCell>{row.last_name}</TableCell>
+          <TableCell>{row.email}</TableCell>
+        </TableRow>
+      ))}
+    </TableBody>
   );
 }
 
@@ -119,4 +99,4 @@ const tableData = [
   },
 ];
 
-export default DataTable;
+export default DataTableBody;
