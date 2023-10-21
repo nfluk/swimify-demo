@@ -7,7 +7,7 @@ function App() {
     <>
       <CssBaseline />
       <Navbar />
-      <Typography variant="h3" align="center">
+      <Typography variant="h3" align="center" sx={{ margin: '2rem' }}>
         The Best Competition Ever
       </Typography>
       <Tabs />
