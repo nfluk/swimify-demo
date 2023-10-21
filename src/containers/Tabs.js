@@ -13,7 +13,7 @@ function Tabs() {
     <Box>
       <TabContext value={value}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-          <TabList aria-label="tabs" onChange={handleChange}>
+          <TabList aria-label="tabs" onChange={handleChange} centered>
             <Tab label="Time Schedule" value="1"></Tab>
             <Tab label="By Event" value="2"></Tab>
           </TabList>

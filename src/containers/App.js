@@ -7,7 +7,9 @@ function App() {
     <>
       <CssBaseline />
       <Navbar />
-      <Typography variant="h3">Hello World</Typography>
+      <Typography variant="h3" align="center">
+        The Best Competition Ever
+      </Typography>
       <Tabs />
     </>
   );
