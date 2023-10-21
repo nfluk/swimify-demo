@@ -1,6 +1,6 @@
 import { Typography, CssBaseline } from '@mui/material';
 import Navbar from '../components/Navbar';
-import ResultsList from '../components/ResultsList';
+import Tabs from './Tabs';
 
 function App() {
   return (
@@ -8,7 +8,7 @@ function App() {
       <CssBaseline />
       <Navbar />
       <Typography variant="h3">Hello World</Typography>
-      <ResultsList />
+      <Tabs />
     </>
   );
 }

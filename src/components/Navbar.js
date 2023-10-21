@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  AppBar,
-  Box,
-  Toolbar,
-  IconButton,
-  InputBase,
-  CssBaseline,
-} from '@mui/material';
-import { Search } from '@mui/icons-material';
+import { AppBar, Toolbar } from '@mui/material';
 import logo from '../assets/Swimify_Livetiming.png';
 
 function Navbar() {
