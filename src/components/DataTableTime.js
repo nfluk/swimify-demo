@@ -15,10 +15,18 @@ function DataTableTime() {
       <Table aria-label="simple table" stickyHeader>
         <TableHead>
           <TableRow>
-            <TableCell scope="header">Start Time</TableCell>
-            <TableCell scope="header">Time Program Name</TableCell>
-            <TableCell scope="header">Event Number</TableCell>
-            <TableCell scope="header">Round Status</TableCell>
+            <TableCell sx={headerStyling} scope="header">
+              Start Time
+            </TableCell>
+            <TableCell sx={headerStyling} scope="header">
+              Time Program Name
+            </TableCell>
+            <TableCell sx={headerStyling} scope="header">
+              Event Number
+            </TableCell>
+            <TableCell sx={headerStyling} scope="header">
+              Round Status
+            </TableCell>
           </TableRow>
         </TableHead>
         <DataTableBody />
@@ -26,6 +34,12 @@ function DataTableTime() {
     </TableContainer>
   );
 }
+
+const headerStyling = {
+  backgroundColor: '#3c4c5c',
+  color: 'white',
+  fontWeight: 'bold',
+};
 
 const tableStyling = {
   maxHeight: '600px',

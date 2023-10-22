@@ -15,9 +15,15 @@ function DataTableEvent() {
       <Table aria-label="simple table" stickyHeader>
         <TableHead>
           <TableRow>
-            <TableCell scope="header">Event Number</TableCell>
-            <TableCell scope="header">Event Name</TableCell>
-            <TableCell scope="header">Rounds</TableCell>
+            <TableCell sx={headerStyling} scope="header">
+              Event Number
+            </TableCell>
+            <TableCell sx={headerStyling} scope="header">
+              Event Name
+            </TableCell>
+            <TableCell sx={headerStyling} scope="header">
+              Rounds
+            </TableCell>
           </TableRow>
         </TableHead>
         <DataTableBody />
@@ -25,6 +31,12 @@ function DataTableEvent() {
     </TableContainer>
   );
 }
+
+const headerStyling = {
+  backgroundColor: '#3c4c5c',
+  color: 'white',
+  fontWeight: 'bold',
+};
 
 const tableStyling = {
   maxHeight: '600px',

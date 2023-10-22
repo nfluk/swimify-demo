@@ -14,16 +14,26 @@ function Tabs({ value, handleChange }) {
           </TabList>
         </Box>
         <TabPanel value="1">
-          <Typography>Time Schedule</Typography>
+          <Typography variant="h6" sx={tabPanelStyle}>
+            Time Schedule
+          </Typography>
           <TimeSchedule />
         </TabPanel>
         <TabPanel value="2">
-          <Typography>By Event</Typography>
+          <Typography variant="h6" sx={tabPanelStyle}>
+            By Event
+          </Typography>
           <ByEvent />
         </TabPanel>
       </TabContext>
     </Box>
   );
 }
+
+const tabPanelStyle = {
+  fontWeight: 'bold',
+  color: '#3c4c5c',
+  // textAlign: 'center',
+};
 
 export default Tabs;

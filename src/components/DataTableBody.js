@@ -3,7 +3,7 @@ import { TableBody, TableRow, TableCell } from '@mui/material';
 
 function DataTableBody() {
   return (
-    <TableBody>
+    <TableBody sx={rowStyle}>
       {tableData.map((row) => (
         <TableRow key={row.id}>
           <TableCell>{row.id}</TableCell>
@@ -15,6 +15,12 @@ function DataTableBody() {
     </TableBody>
   );
 }
+
+const rowStyle = {
+  '& tr:nth-of-type(2n+1)': {
+    backgroundColor: '#2196f3',
+  },
+};
 
 const tableData = [
   {
