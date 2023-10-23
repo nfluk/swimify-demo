@@ -1,10 +1,10 @@
 import React from 'react';
 import DataTableTime from './DataTableTime';
 
-function TimeSchedule() {
+function TimeSchedule({ getTime }) {
   return (
     <>
-      <DataTableTime />
+      <DataTableTime getTime={getTime} />
     </>
   );
 }

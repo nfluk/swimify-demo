@@ -1,10 +1,10 @@
 import React from 'react';
 import DataTableEvent from './DataTableEvent';
 
-function ByEvent() {
+function ByEvent({ getEvents }) {
   return (
     <div>
-      <DataTableEvent />
+      <DataTableEvent getEvents={getEvents} />
     </div>
   );
 }
