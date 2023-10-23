@@ -33,6 +33,9 @@ function DataTableTime() {
 
   const { loading, error, data } = useQuery(GET_TIME);
 
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error : {error.message}</p>;
+
   console.log('this is data: ', data);
   return (
     <TableContainer component={Paper} sx={tableStyling}>
@@ -65,7 +68,6 @@ function DataTableTime() {
                   <TableCell>{round.name}</TableCell>
                   <TableCell>{round.round?.event?.number}</TableCell>
                   <TableCell>{round.round?.status}</TableCell>
-                  {/*<TableCell>{row.email}</TableCell> */}
                 </TableRow>
               );
             }
