@@ -33,7 +33,6 @@ function Tabs({ value, handleChange }) {
 const tabPanelStyle = {
   fontWeight: 'bold',
   color: '#3c4c5c',
-  // textAlign: 'center',
 };
 
 export default Tabs;
