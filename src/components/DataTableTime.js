@@ -67,7 +67,7 @@ function DataTableTime() {
             ) {
               return (
                 <TableRow key={row.id}>
-                  <TableCell>{`${row.start_time.substring(11, 16)}`}</TableCell>
+                  <TableCell>{row.start_time.substring(11, 16)}</TableCell>
                   <TableCell>{row.name}</TableCell>
                   <TableCell>{row.round?.event?.number}</TableCell>
                   <TableCell>{row.round?.status}</TableCell>
