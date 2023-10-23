@@ -17,6 +17,7 @@ function DataTableTime() {
         where: {
           competition_id: { _eq: "4aaaf2e3-9026-404c-a2b9-fad19f5e37c9" }
         }
+        order_by: { start_time: asc }
       ) {
         id
         round {
@@ -36,7 +37,8 @@ function DataTableTime() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
 
-  console.log('this is data TIME: ', data.time_program_entry);
+  // console.log('this is data TIME: ', data.time_program_entry);
+
   return (
     <TableContainer component={Paper} sx={tableStyling}>
       <Table aria-label="simple table" stickyHeader>
@@ -58,19 +60,21 @@ function DataTableTime() {
         </TableHead>
         <TableBody sx={rowStyle}>
           {data.time_program_entry.map((row) => {
-            if (loading) return <p>Loading...</p>;
-            if (error) return <p>Error : {error.message}</p>;
-
             if (
-              row.start_time.substring(0, 10) === '2019-06-28' &&
+              row.start_time.substring(11, 16) !== '00:00' &&
               row.round?.status
             ) {
+              const eventStatus =
+                row.round?.status === 3 ? 'Unofficial' : 'Official';
               return (
                 <TableRow key={row.id}>
-                  <TableCell>{row.start_time.substring(11, 16)}</TableCell>
+                  <TableCell>{`${row.start_time.substring(
+                    0,
+                    10
+                  )} ${row.start_time.substring(11, 16)}`}</TableCell>
                   <TableCell>{row.name}</TableCell>
                   <TableCell>{row.round?.event?.number}</TableCell>
-                  <TableCell>{row.round?.status}</TableCell>
+                  <TableCell>{eventStatus}</TableCell>
                 </TableRow>
               );
             }

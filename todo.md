@@ -1,7 +1,6 @@
 # Things to do
 
-- fix day tab to display daily events in
-- fix sort on time
+- fix day tab to display daily events
 - fix hard coded date
 
 # If I had more time:
