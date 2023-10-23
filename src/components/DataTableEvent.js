@@ -8,8 +8,34 @@ import {
   TableCell,
   Paper,
 } from '@mui/material';
+import { gql, useQuery } from '@apollo/client';
 
 function DataTableEvent() {
+  const GET_EVENTS = gql`
+    query GetEvents {
+      events(
+        where: {
+          competition_id: { _eq: "4aaaf2e3-9026-404c-a2b9-fad19f5e37c9" }
+        }
+      ) {
+        id
+        name
+        number
+        rounds {
+          status
+          name
+        }
+      }
+    }
+  `;
+
+  const { loading, error, data } = useQuery(GET_EVENTS);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error : {error.message}</p>;
+
+  console.log('this is data EVENT: ', data.events);
+
   return (
     <TableContainer component={Paper} sx={tableStyling}>
       <Table aria-label="simple table" stickyHeader>
@@ -27,12 +53,11 @@ function DataTableEvent() {
           </TableRow>
         </TableHead>
         <TableBody sx={rowStyle}>
-          {tableData.map((row) => (
+          {data.events.map((row) => (
             <TableRow key={row.id}>
-              <TableCell>{row.id}</TableCell>
-              <TableCell>{row.first_name}</TableCell>
-              <TableCell>{row.last_name}</TableCell>
-              <TableCell>{row.email}</TableCell>
+              <TableCell>{row.number}</TableCell>
+              <TableCell>{row.name}</TableCell>
+              <TableCell>{row.rounds[0].name}</TableCell>
             </TableRow>
           ))}
         </TableBody>

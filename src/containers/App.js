@@ -22,29 +22,29 @@ const client = new ApolloClient({
   },
 });
 
-client
-  .query({
-    query: gql`
-      query GetRounds {
-        time_program_entry(
-          where: {
-            competition_id: { _eq: "4aaaf2e3-9026-404c-a2b9-fad19f5e37c9" }
-          }
-        ) {
-          id
-          round {
-            status
-            event {
-              number
-            }
-          }
-          name
-          start_time
-        }
-      }
-    `,
-  })
-  .then((result) => console.log(result.data.time_program_entry));
+// client
+//   .query({
+//     query: gql`
+//       query GetRounds {
+//         time_program_entry(
+//           where: {
+//             competition_id: { _eq: "4aaaf2e3-9026-404c-a2b9-fad19f5e37c9" }
+//           }
+//         ) {
+//           id
+//           round {
+//             status
+//             event {
+//               number
+//             }
+//           }
+//           name
+//           start_time
+//         }
+//       }
+//     `,
+//   })
+//   .then((result) => console.log(result.data.time_program_entry));
 
 function App() {
   const [value, setValue] = useState('1');
