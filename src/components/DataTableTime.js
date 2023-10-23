@@ -54,14 +54,22 @@ function DataTableTime() {
           </TableRow>
         </TableHead>
         <TableBody sx={rowStyle}>
-          {tableData.map((row) => (
-            <TableRow key={row.id}>
-              <TableCell>{row.id}</TableCell>
-              <TableCell>{row.first_name}</TableCell>
-              <TableCell>{row.last_name}</TableCell>
-              <TableCell>{row.email}</TableCell>
-            </TableRow>
-          ))}
+          {data.time_program_entry.map((round) => {
+            if (loading) return <p>Loading...</p>;
+            if (error) return <p>Error : {error.message}</p>;
+
+            if (round.start_time.substring(0, 10) === '2019-06-28') {
+              return (
+                <TableRow key={round.id}>
+                  <TableCell>{round.start_time.substring(0, 16)}</TableCell>
+                  <TableCell>{round.name}</TableCell>
+                  <TableCell>{round.round?.event?.number}</TableCell>
+                  <TableCell>{round.round?.status}</TableCell>
+                  {/*<TableCell>{row.email}</TableCell> */}
+                </TableRow>
+              );
+            }
+          })}
         </TableBody>
       </Table>
     </TableContainer>
