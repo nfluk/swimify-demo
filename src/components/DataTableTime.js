@@ -36,7 +36,7 @@ function DataTableTime() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
 
-  console.log('this is data: ', data);
+  console.log('this is data TIME: ', data);
   return (
     <TableContainer component={Paper} sx={tableStyling}>
       <Table aria-label="simple table" stickyHeader>
@@ -64,7 +64,10 @@ function DataTableTime() {
             if (round.start_time.substring(0, 10) === '2019-06-28') {
               return (
                 <TableRow key={round.id}>
-                  <TableCell>{round.start_time.substring(0, 16)}</TableCell>
+                  <TableCell>{`2019-06-28 ${round.start_time.substring(
+                    11,
+                    16
+                  )}`}</TableCell>
                   <TableCell>{round.name}</TableCell>
                   <TableCell>{round.round?.event?.number}</TableCell>
                   <TableCell>{round.round?.status}</TableCell>
