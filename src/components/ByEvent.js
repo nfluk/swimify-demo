@@ -9,7 +9,7 @@ function ByEvent() {
         where: {
           competition_id: { _eq: "4aaaf2e3-9026-404c-a2b9-fad19f5e37c9" }
         }
-        order_by: { number: asc }
+        order_by: { name: asc }
       ) {
         id
         name
