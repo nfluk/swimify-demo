@@ -37,13 +37,17 @@ function DataTableTime({ date, loading, error, data }) {
         </TableHead>
         <TableBody sx={rowStyle}>
           {data.time_program_entry.map((row) => {
-            if (row.start_time.substring(0, 10) === date && row.round?.status) {
+            if (row.start_time.substring(0, 10) === date) {
               const eventStatus =
-                row.round?.status === 3 ? 'Unofficial' : 'Official';
+                row.round?.status === 3 ? (
+                  <p className="b ba tc w3 bg-red br3 white">Unofficial</p>
+                ) : (
+                  <p className="b ba tc w3 bg-green br3 white">Official</p>
+                );
               return (
                 <TableRow key={row.id}>
                   <TableCell>
-                    <p className="b ">{date}</p>
+                    <p className="b">{date}</p>
                   </TableCell>
                   <TableCell>
                     <p className="b underline">{`${row.start_time.substring(

@@ -3,7 +3,7 @@ import { TabContext, TabList, TabPanel } from '@mui/lab';
 import TimeSchedule from './TimeSchedule';
 import ByEvent from './ByEvent';
 
-function Tabs({ value, value2, handleChange }) {
+function Tabs({ value, handleChange }) {
   return (
     <Box>
       <TabContext value={value}>
