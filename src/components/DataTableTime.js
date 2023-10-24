@@ -10,7 +10,7 @@ import {
 } from '@mui/material';
 import { gql, useQuery } from '@apollo/client';
 
-function DataTableTime() {
+function DataTableTime({ date }) {
   const GET_TIME = gql`
     query GetRounds {
       time_program_entry(
@@ -60,18 +60,17 @@ function DataTableTime() {
         </TableHead>
         <TableBody sx={rowStyle}>
           {data.time_program_entry.map((row) => {
-            if (
-              row.start_time.substring(11, 16) !== '00:00' &&
-              row.round?.status
-            ) {
+            if (row.start_time.substring(0, 10) === date && row.round?.status) {
               const eventStatus =
                 row.round?.status === 3 ? 'Unofficial' : 'Official';
               return (
                 <TableRow key={row.id}>
-                  <TableCell>{`${row.start_time.substring(
-                    0,
-                    10
-                  )} ${row.start_time.substring(11, 16)}`}</TableCell>
+                  <TableCell>
+                    <p className="b ">{`${row.start_time.substring(
+                      11,
+                      16
+                    )}`}</p>
+                  </TableCell>
                   <TableCell>{row.name}</TableCell>
                   <TableCell>{row.round?.event?.number}</TableCell>
                   <TableCell>{eventStatus}</TableCell>

@@ -9,9 +9,9 @@ import {
   Paper,
 } from '@mui/material';
 // import { gql, useQuery } from '@apollo/client';
-import { useQuery } from '@apollo/client';
+// import { useQuery } from '@apollo/client';
 
-function DayTableTime({ GET_TIME }) {
+function DayTableTime({ loading, error, uniqueDate }) {
   //   const GET_TIME = gql`
   //     query GetRounds {
   //       time_program_entry(
@@ -33,18 +33,18 @@ function DayTableTime({ GET_TIME }) {
   //     }
   //   `;
 
-  const { loading, error, data } = useQuery(GET_TIME);
+  // const { loading, error, data } = useQuery(GET_TIME);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
 
   // console.log('this is data TIME: ', data.time_program_entry);
 
-  const dateArray = data.time_program_entry
-    .map((day) => day.start_time.substring(0, 10))
-    .filter((date) => date !== '0001-01-01');
+  // const dateArray = data.time_program_entry
+  //   .map((day) => day.start_time.substring(0, 10))
+  //   .filter((date) => date !== '0001-01-01');
 
-  const uniqueDate = Array.from(new Set(dateArray));
+  // const uniqueDate = Array.from(new Set(dateArray));
 
   return (
     <TableContainer component={Paper} sx={tableStyling}>
@@ -60,7 +60,9 @@ function DayTableTime({ GET_TIME }) {
           {uniqueDate.map((date) => {
             return (
               <TableRow key={date}>
-                <TableCell>{date}</TableCell>
+                <TableCell>
+                  <button>{date}</button>
+                </TableCell>
               </TableRow>
             );
           })}
