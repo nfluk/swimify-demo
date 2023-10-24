@@ -8,35 +8,8 @@ import {
   TableCell,
   Paper,
 } from '@mui/material';
-import { gql, useQuery } from '@apollo/client';
 
-function DataTableEvent() {
-  const GET_EVENTS = gql`
-    query GetEvents {
-      events(
-        where: {
-          competition_id: { _eq: "4aaaf2e3-9026-404c-a2b9-fad19f5e37c9" }
-        }
-        order_by: { number: asc }
-      ) {
-        id
-        name
-        number
-        rounds {
-          status
-          name
-        }
-      }
-    }
-  `;
-
-  const { loading, error, data } = useQuery(GET_EVENTS);
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error : {error.message}</p>;
-
-  // console.log('this is data EVENT: ', data.events);
-
+function DataTableEvent({ data }) {
   return (
     <TableContainer component={Paper} sx={tableStyling}>
       <Table aria-label="simple table" stickyHeader>
@@ -51,6 +24,9 @@ function DataTableEvent() {
             <TableCell sx={headerStyling} scope="header">
               Rounds
             </TableCell>
+            <TableCell sx={headerStyling} scope="header">
+              Status
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody sx={rowStyle}>
@@ -59,6 +35,13 @@ function DataTableEvent() {
               <TableCell>{event.number}</TableCell>
               <TableCell>{event.name}</TableCell>
               <TableCell>{event.rounds[0].name}</TableCell>
+              <TableCell>
+                {event.rounds[0].status === 3 ? (
+                  <p className="b ba tc w3 bg-red br3 white">Unofficial</p>
+                ) : (
+                  <p className="b ba tc w3 bg-green br3 white">Official</p>
+                )}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
