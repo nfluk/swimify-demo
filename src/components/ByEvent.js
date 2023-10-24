@@ -1,6 +1,7 @@
 import React from 'react';
 import DataTableEvent from './DataTableEvent';
 import { gql, useQuery } from '@apollo/client';
+import { Grid } from '@mui/material';
 
 function ByEvent() {
   const GET_EVENTS = gql`
@@ -28,9 +29,10 @@ function ByEvent() {
   if (error) return <p>Error : {error.message}</p>;
 
   return (
-    <div>
+    <Grid container spacing={1}>
       <DataTableEvent loading={loading} error={error} data={data} />
-    </div>
+      <DataTableEvent loading={loading} error={error} data={data} />
+    </Grid>
   );
 }
 
