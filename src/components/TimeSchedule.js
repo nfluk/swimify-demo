@@ -1,7 +1,6 @@
 import React from 'react';
 import { Grid } from '@mui/material';
 import DataTableTime from './DataTableTime';
-import DayTableTime from './DayTableTime';
 import { gql, useQuery } from '@apollo/client';
 import {
   TableContainer,
@@ -14,12 +13,9 @@ import {
   Button,
 } from '@mui/material';
 import { useState } from 'react';
-import { useEffect } from 'react';
 
 function TimeSchedule() {
   const [date, setDate] = useState('2019-06-11');
-
-  // useEffect(() => {}, []);
 
   const GET_TIME = gql`
     query GetRounds {
