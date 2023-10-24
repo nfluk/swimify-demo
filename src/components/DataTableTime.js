@@ -45,6 +45,9 @@ function DataTableTime({ date }) {
         <TableHead>
           <TableRow>
             <TableCell sx={headerStyling} scope="header">
+              Date
+            </TableCell>
+            <TableCell sx={headerStyling} scope="header">
               Start Time
             </TableCell>
             <TableCell sx={headerStyling} scope="header">
@@ -66,7 +69,10 @@ function DataTableTime({ date }) {
               return (
                 <TableRow key={row.id}>
                   <TableCell>
-                    <p className="b ">{`${row.start_time.substring(
+                    <p className="b ">{date}</p>
+                  </TableCell>
+                  <TableCell>
+                    <p className="b underline">{`${row.start_time.substring(
                       11,
                       16
                     )}`}</p>
