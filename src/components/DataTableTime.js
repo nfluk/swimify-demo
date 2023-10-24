@@ -37,8 +37,6 @@ function DataTableTime({ date }) {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
 
-  // console.log('this is data TIME: ', data.time_program_entry);
-
   return (
     <TableContainer component={Paper} sx={tableStyling}>
       <Table aria-label="simple table" stickyHeader>
