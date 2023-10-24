@@ -8,32 +8,8 @@ import {
   TableCell,
   Paper,
 } from '@mui/material';
-import { gql, useQuery } from '@apollo/client';
 
-function DataTableTime({ date }) {
-  const GET_TIME = gql`
-    query GetRounds {
-      time_program_entry(
-        where: {
-          competition_id: { _eq: "4aaaf2e3-9026-404c-a2b9-fad19f5e37c9" }
-        }
-        order_by: { start_time: asc }
-      ) {
-        id
-        round {
-          status
-          event {
-            number
-          }
-        }
-        name
-        start_time
-      }
-    }
-  `;
-
-  const { loading, error, data } = useQuery(GET_TIME);
-
+function DataTableTime({ date, loading, error, data }) {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
 

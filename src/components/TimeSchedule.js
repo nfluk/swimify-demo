@@ -57,7 +57,6 @@ function TimeSchedule() {
   return (
     <Grid container spacing={2}>
       <Grid item xs={2}>
-        {/* <DayTableTime loading={loading} error={error} uniqueDate={uniqueDate} /> */}
         <TableContainer component={Paper} sx={tableStyling}>
           <Table aria-label="simple table" stickyHeader>
             <TableHead>
@@ -91,7 +90,12 @@ function TimeSchedule() {
         </TableContainer>
       </Grid>
       <Grid item xs={10}>
-        <DataTableTime date={date} />
+        <DataTableTime
+          date={date}
+          loading={loading}
+          error={error}
+          data={data}
+        />
       </Grid>
     </Grid>
   );
