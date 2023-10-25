@@ -13,18 +13,16 @@ function DataTableEvent({ data, gender }) {
   return (
     <TableContainer component={Paper} sx={tableStyling}>
       <Table aria-label="simple table" stickyHeader>
-        {/* <TableHead>
-          <TableRow>
-            <TableCell sx={{ fontSize: '.9rem' }} scope="header">
-              <p className="b underline">{gender}</p>
-            </TableCell>
-          </TableRow>
-        </TableHead> */}
         <Table aria-label="simple table" stickyHeader></Table>
         <TableHead>
           <TableRow>
             <TableCell sx={headerStyling} scope="header">
-              <p className="b underline">{gender}</p>
+              <p
+                className="b underline ba br2 w3 tc ma1 pa1 bg-white"
+                style={{ color: '#3c4c5c' }}
+              >
+                {gender}
+              </p>
               <p>Event Number</p>
             </TableCell>
             <TableCell sx={headerStyling} scope="header">
@@ -34,7 +32,7 @@ function DataTableEvent({ data, gender }) {
               <p>Rounds</p>
             </TableCell>
             <TableCell sx={headerStyling} scope="header">
-              <p>Status</p>
+              <p className="tc">Status</p>
             </TableCell>
           </TableRow>
         </TableHead>
@@ -48,9 +46,11 @@ function DataTableEvent({ data, gender }) {
                   <TableCell>{event.rounds[0].name}</TableCell>
                   <TableCell>
                     {event.rounds[0].status === 3 ? (
-                      <p className="b ba tc w3 bg-red br3 white">Unofficial</p>
+                      <p className="b ba tc w4 bg-red br3 white center">
+                        Unofficial
+                      </p>
                     ) : (
-                      <p className="b ba tc w3 bg-green br3 white">Official</p>
+                      <p className="b ba tc w4 bg-green br3 white">Official</p>
                     )}
                   </TableCell>
                 </TableRow>

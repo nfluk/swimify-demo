@@ -19,19 +19,19 @@ function DataTableTime({ date, loading, error, data }) {
         <TableHead>
           <TableRow>
             <TableCell sx={headerStyling} scope="header">
-              Date
+              <p>Date</p>
             </TableCell>
             <TableCell sx={headerStyling} scope="header">
-              Start Time
+              <p>Start Time</p>
             </TableCell>
             <TableCell sx={headerStyling} scope="header">
-              Time Program Entry Name
+              <p>Time Program Entry Name</p>
             </TableCell>
             <TableCell sx={headerStyling} scope="header">
-              Event Number
+              <p>Event Number</p>
             </TableCell>
             <TableCell sx={headerStyling} scope="header">
-              Round Status
+              <p className="tc">Round Status</p>
             </TableCell>
           </TableRow>
         </TableHead>
@@ -40,9 +40,13 @@ function DataTableTime({ date, loading, error, data }) {
             if (row.start_time.substring(0, 10) === date) {
               const eventStatus =
                 row.round?.status === 3 ? (
-                  <p className="b ba tc w3 bg-red br3 white">Unofficial</p>
+                  <p className="b ba tc w4 bg-red br3 white center">
+                    Unofficial
+                  </p>
                 ) : (
-                  <p className="b ba tc w3 bg-green br3 white">Official</p>
+                  <p className="b ba tc w4 bg-green br3 white center">
+                    Official
+                  </p>
                 );
               return (
                 <TableRow key={row.id}>
