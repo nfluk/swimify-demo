@@ -54,7 +54,9 @@ function DataTableEvent({ data, gender }) {
                         Unofficial
                       </p>
                     ) : (
-                      <p className="b ba tc w4 bg-green br3 white">Official</p>
+                      <p className="b ba tc w4 bg-green br3 white center">
+                        Official
+                      </p>
                     )}
                   </TableCell>
                 </TableRow>
