@@ -13,19 +13,28 @@ function DataTableEvent({ data, gender }) {
   return (
     <TableContainer component={Paper} sx={tableStyling}>
       <Table aria-label="simple table" stickyHeader>
+        {/* <TableHead>
+          <TableRow>
+            <TableCell sx={{ fontSize: '.9rem' }} scope="header">
+              <p className="b underline">{gender}</p>
+            </TableCell>
+          </TableRow>
+        </TableHead> */}
+        <Table aria-label="simple table" stickyHeader></Table>
         <TableHead>
           <TableRow>
             <TableCell sx={headerStyling} scope="header">
-              Event Number
+              <p className="b underline">{gender}</p>
+              <p>Event Number</p>
             </TableCell>
             <TableCell sx={headerStyling} scope="header">
-              Event Name
+              <p>Event Name</p>
             </TableCell>
             <TableCell sx={headerStyling} scope="header">
-              Rounds
+              <p>Rounds</p>
             </TableCell>
             <TableCell sx={headerStyling} scope="header">
-              Status
+              <p>Status</p>
             </TableCell>
           </TableRow>
         </TableHead>
