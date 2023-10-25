@@ -9,7 +9,7 @@ import {
   Paper,
 } from '@mui/material';
 
-function DataTableEvent({ data }) {
+function DataTableEvent({ data, gender }) {
   return (
     <TableContainer component={Paper} sx={tableStyling}>
       <Table aria-label="simple table" stickyHeader>
@@ -30,20 +30,24 @@ function DataTableEvent({ data }) {
           </TableRow>
         </TableHead>
         <TableBody sx={rowStyle}>
-          {data.events.map((event) => (
-            <TableRow key={event.id}>
-              <TableCell>{event.number}</TableCell>
-              <TableCell>{event.name}</TableCell>
-              <TableCell>{event.rounds[0].name}</TableCell>
-              <TableCell>
-                {event.rounds[0].status === 3 ? (
-                  <p className="b ba tc w3 bg-red br3 white">Unofficial</p>
-                ) : (
-                  <p className="b ba tc w3 bg-green br3 white">Official</p>
-                )}
-              </TableCell>
-            </TableRow>
-          ))}
+          {data.events.map((event) => {
+            if (event.name.includes(gender)) {
+              return (
+                <TableRow key={event.id}>
+                  <TableCell>{event.number}</TableCell>
+                  <TableCell>{event.name}</TableCell>
+                  <TableCell>{event.rounds[0].name}</TableCell>
+                  <TableCell>
+                    {event.rounds[0].status === 3 ? (
+                      <p className="b ba tc w3 bg-red br3 white">Unofficial</p>
+                    ) : (
+                      <p className="b ba tc w3 bg-green br3 white">Official</p>
+                    )}
+                  </TableCell>
+                </TableRow>
+              );
+            }
+          })}
         </TableBody>
       </Table>
     </TableContainer>

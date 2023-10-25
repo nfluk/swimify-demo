@@ -30,8 +30,22 @@ function ByEvent() {
 
   return (
     <Grid container spacing={1}>
-      <DataTableEvent loading={loading} error={error} data={data} />
-      <DataTableEvent loading={loading} error={error} data={data} />
+      <Grid item xs={6}>
+        <DataTableEvent
+          loading={loading}
+          error={error}
+          data={data}
+          gender={'Herrar'}
+        />
+      </Grid>
+      <Grid item xs={6}>
+        <DataTableEvent
+          loading={loading}
+          error={error}
+          data={data}
+          gender={'Damer'}
+        />
+      </Grid>
     </Grid>
   );
 }
