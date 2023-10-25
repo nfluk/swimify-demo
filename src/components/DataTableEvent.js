@@ -10,10 +10,14 @@ import {
 } from '@mui/material';
 
 function DataTableEvent({ data, gender }) {
+  const arrayToSort = [...data.events];
+  const sortedByDistance = arrayToSort.sort(
+    (a, b) => parseInt(a.name) - parseInt(b.name)
+  );
+
   return (
     <TableContainer component={Paper} sx={tableStyling}>
       <Table aria-label="simple table" stickyHeader>
-        <Table aria-label="simple table" stickyHeader></Table>
         <TableHead>
           <TableRow>
             <TableCell sx={headerStyling} scope="header">
@@ -37,7 +41,7 @@ function DataTableEvent({ data, gender }) {
           </TableRow>
         </TableHead>
         <TableBody sx={rowStyle}>
-          {data.events.map((event) => {
+          {sortedByDistance.map((event) => {
             if (event.name.includes(gender)) {
               return (
                 <TableRow key={event.id}>
