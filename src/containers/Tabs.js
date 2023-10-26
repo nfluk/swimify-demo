@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Box, Tab, Typography } from '@mui/material';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
-import TimeSchedule from './TimeSchedule';
-import ByEvent from './ByEvent';
+import TimeSchedule from '../components/TimeSchedule';
+import ByEvent from '../components/ByEvent';
 import { gql, useQuery } from '@apollo/client';
 
 function Tabs({ value, handleChange }) {

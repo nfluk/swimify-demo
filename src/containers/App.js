@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { CssBaseline } from '@mui/material';
 import Navbar from '../components/Navbar';
 import MainTitle from '../components/MainTitle';
-import Tabs from '../components/Tabs';
+import Tabs from './Tabs';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 
 const client = new ApolloClient({
