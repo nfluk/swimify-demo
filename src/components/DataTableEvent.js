@@ -45,24 +45,57 @@ function DataTableEvent({ data, gender }) {
         <TableBody sx={rowStyle}>
           {sortedByDistance.map((event) => {
             if (event.name.includes(gender)) {
-              return (
-                <TableRow key={event.id}>
-                  <TableCell>{event.number}</TableCell>
-                  <TableCell>{event.name}</TableCell>
-                  <TableCell>{event.rounds[0].name}</TableCell>
-                  <TableCell>
-                    {event.rounds[0].status === 3 ? (
-                      <p className="b ba tc w4 bg-red br3 white center">
-                        Unofficial
-                      </p>
-                    ) : (
-                      <p className="b ba tc w4 bg-green br3 white center">
-                        Official
-                      </p>
-                    )}
-                  </TableCell>
-                </TableRow>
-              );
+              // if has more than 1 round then this
+              if (event.rounds.length > 1) {
+                return (
+                  <TableRow key={event.id}>
+                    <TableCell>{event.number}</TableCell>
+                    <TableCell>{event.name}</TableCell>
+                    <TableCell>
+                      {event.rounds.map((name) => (
+                        <div>
+                          <p>{name.name}</p>
+                        </div>
+                      ))}
+                    </TableCell>
+                    <TableCell>
+                      {event.rounds.map((status) => (
+                        <div>
+                          {event.status === 3 ? (
+                            <p className="b ba tc w4 bg-red br3 white center">
+                              Unofficial
+                            </p>
+                          ) : (
+                            <p className="b ba tc w4 bg-green br3 white center">
+                              Official
+                            </p>
+                          )}
+                        </div>
+                      ))}
+                    </TableCell>
+                  </TableRow>
+                );
+              } else {
+                // if has one round then this
+                return (
+                  <TableRow key={event.id}>
+                    <TableCell>{event.number}</TableCell>
+                    <TableCell>{event.name}</TableCell>
+                    <TableCell>{event.rounds[0].name}</TableCell>
+                    <TableCell>
+                      {event.rounds[0].status === 3 ? (
+                        <p className="b ba tc w4 bg-red br3 white center">
+                          Unofficial
+                        </p>
+                      ) : (
+                        <p className="b ba tc w4 bg-green br3 white center">
+                          Official
+                        </p>
+                      )}
+                    </TableCell>
+                  </TableRow>
+                );
+              }
             }
           })}
         </TableBody>
