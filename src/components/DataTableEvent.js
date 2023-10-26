@@ -10,7 +10,7 @@ import {
   Divider,
 } from '@mui/material';
 
-function DataTableEvent({ data, gender }) {
+function DataTableEvent({ data, gender, distance }) {
   const arrayToSort = [...data.events];
   const sortedByDistance = arrayToSort.sort(
     (a, b) => parseInt(a.name) - parseInt(b.name)

@@ -4,7 +4,7 @@ import { gql, useQuery } from '@apollo/client';
 import { Grid } from '@mui/material';
 import FilterButtons from './FilterButtons';
 
-function ByEvent({ distances, handleDistanceClick }) {
+function ByEvent({ distance, distances, handleDistanceClick }) {
   const GET_EVENTS = gql`
     query GetEvents {
       events(
@@ -51,6 +51,7 @@ function ByEvent({ distances, handleDistanceClick }) {
             error={error}
             data={data}
             gender={'Herrar'}
+            distance={distance}
           />
         </Grid>
         <Grid item xs={6}>
@@ -59,6 +60,7 @@ function ByEvent({ distances, handleDistanceClick }) {
             error={error}
             data={data}
             gender={'Damer'}
+            distance={distance}
           />
         </Grid>
       </Grid>
