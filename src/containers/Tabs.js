@@ -46,7 +46,11 @@ function Tabs({ value, handleChange, distances }) {
   };
 
   const handleDistanceClick = (e) => {
-    setDistance(e.target.textContent);
+    let filtered = e.target.textContent;
+    if (filtered === 'All') {
+      filtered = '';
+    }
+    setDistance(filtered);
   };
 
   return (

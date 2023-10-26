@@ -43,7 +43,7 @@ function DataTableEvent({ data, gender, distance }) {
         </TableHead>
         <TableBody sx={rowStyle}>
           {sortedByDistance.map((event) => {
-            if (event.name.includes(gender)) {
+            if (event.name.includes(gender) && event.name.includes(distance)) {
               if (event.rounds.length > 1) {
                 return (
                   <TableRow key={event.id}>
