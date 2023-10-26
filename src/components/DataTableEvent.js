@@ -15,8 +15,6 @@ function DataTableEvent({ data, gender }) {
     (a, b) => parseInt(a.name) - parseInt(b.name)
   );
 
-  console.log(sortedByDistance);
-
   return (
     <TableContainer component={Paper} sx={tableStyling}>
       <Table aria-label="simple table" stickyHeader>
@@ -45,7 +43,6 @@ function DataTableEvent({ data, gender }) {
         <TableBody sx={rowStyle}>
           {sortedByDistance.map((event) => {
             if (event.name.includes(gender)) {
-              // if has more than 1 round then this
               if (event.rounds.length > 1) {
                 return (
                   <TableRow key={event.id}>
@@ -76,7 +73,6 @@ function DataTableEvent({ data, gender }) {
                   </TableRow>
                 );
               } else {
-                // if has one round then this
                 return (
                   <TableRow key={event.id}>
                     <TableCell>{event.number}</TableCell>
