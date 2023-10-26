@@ -16,7 +16,11 @@ function TimeSchedule({
       <Grid container justifyContent="center" gap={2}>
         {uniqueDate.map((date) => {
           return (
-            <FilterButtons handleCellClick={handleCellClick} data={date} />
+            <FilterButtons
+              key={date}
+              handleCellClick={handleCellClick}
+              data={date}
+            />
           );
         })}
       </Grid>
