@@ -15,6 +15,8 @@ function DataTableEvent({ data, gender }) {
     (a, b) => parseInt(a.name) - parseInt(b.name)
   );
 
+  console.log(sortedByDistance);
+
   return (
     <TableContainer component={Paper} sx={tableStyling}>
       <Table aria-label="simple table" stickyHeader>
