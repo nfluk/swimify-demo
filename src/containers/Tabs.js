@@ -42,12 +42,10 @@ function Tabs({ value, handleChange, distances }) {
   const uniqueDate = Array.from(new Set(dateArray));
 
   const handleCellClick = (e) => {
-    console.log(e.target.textContent);
     setDate(e.target.textContent);
   };
 
   const handleDistanceClick = (e) => {
-    console.log(e.target.textContent);
     setDistance(e.target.textContent);
   };
 

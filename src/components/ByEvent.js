@@ -36,6 +36,7 @@ function ByEvent({ distances, handleDistanceClick }) {
           {distances.map((distance) => {
             return (
               <FilterButtons
+                key={distance}
                 handleDistanceClick={handleDistanceClick}
                 data={distance}
               />
