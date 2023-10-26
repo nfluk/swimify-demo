@@ -7,6 +7,7 @@ import {
   TableRow,
   TableCell,
   Paper,
+  Divider,
 } from '@mui/material';
 
 function DataTableEvent({ data, gender }) {

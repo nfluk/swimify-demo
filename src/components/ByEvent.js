@@ -2,8 +2,9 @@ import React from 'react';
 import DataTableEvent from './DataTableEvent';
 import { gql, useQuery } from '@apollo/client';
 import { Grid } from '@mui/material';
+import FilterButtons from './FilterButtons';
 
-function ByEvent() {
+function ByEvent({ distances, handleDistanceClick }) {
   const GET_EVENTS = gql`
     query GetEvents {
       events(
@@ -29,24 +30,38 @@ function ByEvent() {
   if (error) return <p>Error : {error.message}</p>;
 
   return (
-    <Grid container spacing={1}>
-      <Grid item xs={6}>
-        <DataTableEvent
-          loading={loading}
-          error={error}
-          data={data}
-          gender={'Herrar'}
-        />
+    <>
+      <Grid container justifyContent="center">
+        <Grid container justifyContent="center" gap={2}>
+          {distances.map((distance) => {
+            return (
+              <FilterButtons
+                handleDistanceClick={handleDistanceClick}
+                data={distance}
+              />
+            );
+          })}
+        </Grid>
       </Grid>
-      <Grid item xs={6}>
-        <DataTableEvent
-          loading={loading}
-          error={error}
-          data={data}
-          gender={'Damer'}
-        />
+      <Grid container spacing={1}>
+        <Grid item xs={6}>
+          <DataTableEvent
+            loading={loading}
+            error={error}
+            data={data}
+            gender={'Herrar'}
+          />
+        </Grid>
+        <Grid item xs={6}>
+          <DataTableEvent
+            loading={loading}
+            error={error}
+            data={data}
+            gender={'Damer'}
+          />
+        </Grid>
       </Grid>
-    </Grid>
+    </>
   );
 }
 

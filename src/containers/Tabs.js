@@ -5,8 +5,9 @@ import TimeSchedule from '../components/TimeSchedule';
 import ByEvent from '../components/ByEvent';
 import { gql, useQuery } from '@apollo/client';
 
-function Tabs({ value, handleChange }) {
+function Tabs({ value, handleChange, distances }) {
   const [date, setDate] = useState('2019-06-11');
+  const [distance, setDistance] = useState('');
 
   const GET_TIME = gql`
     query GetRounds {
@@ -45,6 +46,11 @@ function Tabs({ value, handleChange }) {
     setDate(e.target.textContent);
   };
 
+  const handleDistanceClick = (e) => {
+    console.log(e.target.textContent);
+    setDistance(e.target.textContent);
+  };
+
   return (
     <Box>
       <TabContext value={value}>
@@ -71,7 +77,11 @@ function Tabs({ value, handleChange }) {
           <Typography variant="h6" sx={tabPanelStyle}>
             By Event
           </Typography>
-          <ByEvent />
+          <ByEvent
+            distance={distance}
+            distances={distances}
+            handleDistanceClick={handleDistanceClick}
+          />
         </TabPanel>
       </TabContext>
     </Box>

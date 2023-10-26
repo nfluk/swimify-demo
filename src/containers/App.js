@@ -28,9 +28,11 @@ function App() {
       <CssBaseline />
       <Navbar />
       <MainTitle />
-      <Tabs value={value} handleChange={handleChange} />
+      <Tabs value={value} handleChange={handleChange} distances={distances} />
     </ApolloProvider>
   );
 }
+
+const distances = ['50m', '100m', '200m', '400m', '800m', '1500m', 'All'];
 
 export default App;
