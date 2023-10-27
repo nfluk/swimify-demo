@@ -1,13 +1,21 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { Box, Tab, Typography } from '@mui/material';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 import TimeSchedule from '../components/TimeSchedule';
 import ByEvent from '../components/ByEvent';
 import { gql, useQuery } from '@apollo/client';
 
-function Tabs({ value, handleChange, distances }) {
-  const [date, setDate] = useState('2019-06-11');
-  const [distance, setDistance] = useState('');
+function Tabs({
+  value,
+  handleChange,
+  handleCellClick,
+  handleDistanceClick,
+  distances,
+  date,
+  distance,
+}) {
+  // const [date, setDate] = useState('2019-06-11');
+  // const [distance, setDistance] = useState('');
 
   const GET_TIME = gql`
     query GetRounds {
@@ -41,17 +49,17 @@ function Tabs({ value, handleChange, distances }) {
 
   const uniqueDate = Array.from(new Set(dateArray));
 
-  const handleCellClick = (e) => {
-    setDate(e.target.textContent);
-  };
+  // const handleCellClick = (e) => {
+  //   setDate(e.target.textContent);
+  // };
 
-  const handleDistanceClick = (e) => {
-    let filtered = e.target.textContent;
-    if (filtered === 'All') {
-      filtered = '';
-    }
-    setDistance(filtered);
-  };
+  // const handleDistanceClick = (e) => {
+  //   let filtered = e.target.textContent;
+  //   if (filtered === 'All') {
+  //     filtered = '';
+  //   }
+  //   setDistance(filtered);
+  // };
 
   return (
     <Box>

@@ -18,9 +18,23 @@ const client = new ApolloClient({
 
 function App() {
   const [value, setValue] = useState('1');
+  const [date, setDate] = useState('2019-06-11');
+  const [distance, setDistance] = useState('');
 
   const handleChange = (e, newValue) => {
     setValue(newValue);
+  };
+
+  const handleCellClick = (e) => {
+    setDate(e.target.textContent);
+  };
+
+  const handleDistanceClick = (e) => {
+    let filtered = e.target.textContent;
+    if (filtered === 'All') {
+      filtered = '';
+    }
+    setDistance(filtered);
   };
 
   return (
@@ -28,7 +42,15 @@ function App() {
       <CssBaseline />
       <Navbar />
       <MainTitle />
-      <Tabs value={value} handleChange={handleChange} distances={distances} />
+      <Tabs
+        value={value}
+        handleChange={handleChange}
+        handleCellClick={handleCellClick}
+        handleDistanceClick={handleDistanceClick}
+        distances={distances}
+        distance={distance}
+        date={date}
+      />
     </ApolloProvider>
   );
 }
