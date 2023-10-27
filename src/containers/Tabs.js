@@ -3,7 +3,6 @@ import { Box, Tab, Typography } from '@mui/material';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 import TimeSchedule from '../components/TimeSchedule';
 import ByEvent from '../components/ByEvent';
-import { gql, useQuery } from '@apollo/client';
 
 function Tabs({
   value,
@@ -14,53 +13,6 @@ function Tabs({
   date,
   distance,
 }) {
-  // const [date, setDate] = useState('2019-06-11');
-  // const [distance, setDistance] = useState('');
-
-  const GET_TIME = gql`
-    query GetRounds {
-      time_program_entry(
-        where: {
-          competition_id: { _eq: "4aaaf2e3-9026-404c-a2b9-fad19f5e37c9" }
-        }
-        order_by: { start_time: asc }
-      ) {
-        id
-        round {
-          status
-          event {
-            number
-          }
-        }
-        name
-        start_time
-      }
-    }
-  `;
-
-  const { loading, error, data } = useQuery(GET_TIME);
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error : {error.message}</p>;
-
-  const dateArray = data.time_program_entry
-    .map((day) => day.start_time.substring(0, 10))
-    .filter((date) => date !== '0001-01-01');
-
-  const uniqueDate = Array.from(new Set(dateArray));
-
-  // const handleCellClick = (e) => {
-  //   setDate(e.target.textContent);
-  // };
-
-  // const handleDistanceClick = (e) => {
-  //   let filtered = e.target.textContent;
-  //   if (filtered === 'All') {
-  //     filtered = '';
-  //   }
-  //   setDistance(filtered);
-  // };
-
   return (
     <Box>
       <TabContext value={value}>
@@ -75,12 +27,12 @@ function Tabs({
             Time Schedule
           </Typography>
           <TimeSchedule
-            uniqueDate={uniqueDate}
+            // uniqueDate={uniqueDate}
             handleCellClick={handleCellClick}
             date={date}
-            loading={loading}
-            error={error}
-            data={data}
+            // loading={loading}
+            // error={error}
+            // data={data}
           />
         </TabPanel>
         <TabPanel value="2">
